@@ -21,6 +21,26 @@
 		<servlet-name>virat</servlet-name>
 		<url-pattern>/apple</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Validation</servlet-name>
+		<servlet-class>ValidationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Validation</servlet-name>
+		<url-pattern>/validate</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Addition</servlet-name>
+		<servlet-class>AdditionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Addition</servlet-name>
+		<url-pattern>/myadd</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>
