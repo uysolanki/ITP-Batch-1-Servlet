@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,10 @@ public class ValidationServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		ServletContext context=getServletContext();
+		String appName=(String)context.getInitParameter("applicationName");
+		out.print(appName);
+		
 		int n1 = Integer.parseInt(request.getParameter("t1"));
 		int n2 = Integer.parseInt(request.getParameter("t2"));
 		
@@ -42,7 +47,9 @@ public class ValidationServlet extends HttpServlet {
 		}
 		else
 		{
-			out.print("Please enter Valid Numbers");
+			out.print("<font color='red'><b><u>Please enter Valid Numbers</u></b></font>");
+			RequestDispatcher rd1=request.getRequestDispatcher("/add.html");
+			rd1.include(request, response);
 		}
 	}
 

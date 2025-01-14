@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
+	<context-param>
+			<param-name>applicationName</param-name>
+			<param-value>Zomato</param-value>
+	</context-param>
 
-	   <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.xhtml</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>welcome.html</welcome-file>
-    </welcome-file-list>
-
-
-	
-
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>welcome.html</welcome-file>
+	</welcome-file-list>
 
 	<servlet>
 		<servlet-name>virat</servlet-name>
 		<servlet-class>OddEven</servlet-class>
+		<init-param>
+			<param-name>developerName</param-name>
+			<param-value>ITP</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>virat</servlet-name>
 		<url-pattern>/apple</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>Validation</servlet-name>
 		<servlet-class>ValidationServlet</servlet-class>
@@ -31,8 +35,8 @@
 		<servlet-name>Validation</servlet-name>
 		<url-pattern>/validate</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>Addition</servlet-name>
 		<servlet-class>AdditionServlet</servlet-class>

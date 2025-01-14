@@ -3,6 +3,8 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,11 +33,22 @@ public class OddEven extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		ServletContext context=getServletContext();
+		String appName=(String)context.getInitParameter("applicationName");
+		out.print(appName);
+		
+		ServletConfig config=getServletConfig();
+		String devName=(String)config.getInitParameter("developerName");
+		out.print(devName);
+		
 		int n1 = Integer.parseInt(request.getParameter("t1"));
 		if(n1%2==0)
 			out.print("<font color='red'><b><u>NUMBER IS EVEN</u></b></font>");
 		else
 			out.print("<font color='green'><b><u>NUMBER IS EVEN</u></b></font>");
+		
+//		String name=request.getParameter("t1");
+//		response.sendRedirect("https://www.google.co.in/search?q="+name);
 		
 	}
 

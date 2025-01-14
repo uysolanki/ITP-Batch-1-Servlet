@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,10 @@ public class AdditionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
+		
+		ServletContext context=getServletContext();
+		String appName=(String)context.getInitParameter("applicationName");
+		out.print(appName);
 		
 		int n1 = Integer.parseInt(request.getParameter("t1"));
 		int n2 = Integer.parseInt(request.getParameter("t2"));
