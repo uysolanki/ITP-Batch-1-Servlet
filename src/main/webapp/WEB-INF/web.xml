@@ -4,6 +4,25 @@
 			<param-name>applicationName</param-name>
 			<param-value>Zomato</param-value>
 	</context-param>
+	<context-param>
+			<param-name>driverName</param-name>
+			<param-value>com.mysql.jdbc.Driver</param-value>
+	</context-param>
+	
+	<context-param>
+			<param-name>dbName</param-name>
+			<param-value>jdbc:mysql://localhost:3306/itpdb</param-value>
+	</context-param>
+	
+	<context-param>
+			<param-name>userName</param-name>
+			<param-value>root</param-value>
+	</context-param>
+	
+	<context-param>
+			<param-name>password</param-name>
+			<param-value></param-value>
+	</context-param>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -44,6 +63,16 @@
 	<servlet-mapping>
 		<servlet-name>Addition</servlet-name>
 		<url-pattern>/myadd</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>AddEmployee</servlet-name>
+		<servlet-class>AddEmployeeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddEmployee</servlet-name>
+		<url-pattern>/newemp</url-pattern>
 	</servlet-mapping>
 
 
