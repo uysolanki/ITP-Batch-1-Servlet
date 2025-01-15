@@ -74,6 +74,26 @@
 		<servlet-name>AddEmployee</servlet-name>
 		<url-pattern>/newemp</url-pattern>
 	</servlet-mapping>
-
-
+	
+	
+	<servlet>
+		<servlet-name>Substraction</servlet-name>
+		<servlet-class>SubstractionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Substraction</servlet-name>
+		<url-pattern>/minus</url-pattern>
+	</servlet-mapping>
+	
+	
+	<filter>
+        <filter-name>subfil</filter-name>
+        <filter-class>SubstractionFilter</filter-class>
+    </filter>
+	
+	 <filter-mapping>
+        <filter-name>subfil</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	
 </web-app>
