@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
 	<context-param>
-			<param-name>applicationName</param-name>
-			<param-value>Zomato</param-value>
+		<param-name>applicationName</param-name>
+		<param-value>Zomato</param-value>
 	</context-param>
 	<context-param>
-			<param-name>driverName</param-name>
-			<param-value>com.mysql.jdbc.Driver</param-value>
+		<param-name>driverName</param-name>
+		<param-value>com.mysql.jdbc.Driver</param-value>
 	</context-param>
-	
+
 	<context-param>
-			<param-name>dbName</param-name>
-			<param-value>jdbc:mysql://localhost:3306/itpdb</param-value>
+		<param-name>dbName</param-name>
+		<param-value>jdbc:mysql://localhost:3306/itpdb</param-value>
 	</context-param>
-	
+
 	<context-param>
-			<param-name>userName</param-name>
-			<param-value>root</param-value>
+		<param-name>userName</param-name>
+		<param-value>root</param-value>
 	</context-param>
-	
+
 	<context-param>
-			<param-name>password</param-name>
-			<param-value></param-value>
+		<param-name>password</param-name>
+		<param-value></param-value>
 	</context-param>
 
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>displaycustomers.html</welcome-file>
 		<welcome-file>index.xhtml</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
@@ -64,8 +64,8 @@
 		<servlet-name>Addition</servlet-name>
 		<url-pattern>/myadd</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>AddEmployee</servlet-name>
 		<servlet-class>AddEmployeeServlet</servlet-class>
@@ -74,8 +74,8 @@
 		<servlet-name>AddEmployee</servlet-name>
 		<url-pattern>/newemp</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>Substraction</servlet-name>
 		<servlet-class>SubstractionServlet</servlet-class>
@@ -85,15 +85,55 @@
 		<url-pattern>/minus</url-pattern>
 	</servlet-mapping>
 	
-	
+	<servlet>
+		<servlet-name>ViewAllEmployees</servlet-name>
+		<servlet-class>ViewAllEmployeesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAllEmployees</servlet-name>
+		<url-pattern>/viewemp</url-pattern>
+	</servlet-mapping>
+
+
 	<filter>
-        <filter-name>subfil</filter-name>
-        <filter-class>SubstractionFilter</filter-class>
-    </filter>
-	
-	 <filter-mapping>
-        <filter-name>subfil</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-	
+		<filter-name>subfil</filter-name>
+		<filter-class>SubstractionFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>subfil</filter-name>
+		<url-pattern>/minus</url-pattern>
+	</filter-mapping>
+
+
+	<filter>
+		<filter-name>dbconnect</filter-name>
+		<filter-class>ConnectionFilter</filter-class>
+
+		<init-param>
+			<param-name>driverName</param-name>
+			<param-value>com.mysql.jdbc.Driver</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>dbName</param-name>
+			<param-value>jdbc:mysql://localhost:3306/itpdb</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>userName</param-name>
+			<param-value>root</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>password</param-name>
+			<param-value></param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>dbconnect</filter-name>
+		<url-pattern>/dbconnect</url-pattern>
+	</filter-mapping>
+
 </web-app>
